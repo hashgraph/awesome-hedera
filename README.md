@@ -94,6 +94,7 @@ This section features open source projects in the [Hedera](https://www.hedera.co
 - [DiD SDK (Java)](https://github.com/hashgraph/did-sdk-java) \- Java SDK for managing DID Documents & Verifiable Credentials.
 - [DiD Method](https://github.com/hashgraph/did-method) \- This repository contains the Hedera DID method specification.
 - [NFT SDK](https://github.com/hashgraph/hedera-nft-sdk) \- Hedera NFT Utilities SDK for JavaScript
+- [Hashgraph Online Standards SDK](https://github.com/hashgraph-online/standards-sdk) \- The official Hashgraph Online Standards SDK provides the RegistryBrokerClient for Universal Agentic Registry. Enables AI agent discovery, registration, blockchain-based identity (ERC-8004, UAIDs), and autonomous commerce via x402 protocol.
 - [SDK TCK](https://github.com/hiero-ledger/hiero-sdk-tck) \- A TCK (Technology Compatibility Kit) used to verify compliant implementations of a Hiero SDK.
 - [Hedera Custodians Library](https://github.com/hashgraph/hedera-custodians-library) \- The hedera-custodians-library library is a Typescript utility designed to simplify custodial wallet management. It provides developers with tools to abstract complex aspects of custodial wallets, allowing them to focus on their application's core logic.
 
