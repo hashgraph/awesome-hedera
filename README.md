@@ -14,6 +14,7 @@ A curated list of awesome Hedera resources, applications, projects, and more!
   - [Examples and Demos](README.md#examples-and-demos)
   - [References and Resources](README.md#references-and-resources)
   - [Accelerators](README.md#accelerators)
+  - [Hashgraph Online Standards & AI Agent Infrastructure](README.md#hashgraph-online-standards--ai-agent-infrastructure)
 - [Infrastructure and Integrations](README.md#infrastructure-and-integrations)
   - [Wallets](README.md#wallets)
   - [Custodians](README.md#custodians)
@@ -129,7 +130,7 @@ This section features open source projects in the [Hedera](https://www.hedera.co
 
 - [Hackathon EVM starter sheet](https://github.com/hedera-dev/hedera-cheatsheets/blob/master/hedera-hackathon-starter-cheat-sheet-v1.pdf)
 - [JSON RPC Relay](https://github.com/hashgraph/hedera-json-rpc-relay%20) \- implementation of an Ethereum JSON RPC APIs for Hedera.
-- [Hashio](https://www.hashgraph.com/hashio/) \- Hashio is a Hashgraph-hosted service based on the open-source Hedera JSON-RPC-Relay. It provides a JSON-RPC API interface on top of Hedera’s native API transactions, offering a familiar Ethereum-like API.
+- [Hashio](https://www.hashgraph.com/hashio/) \- Hashio is a Hashgraph-hosted service based on the open-source Hedera JSON-RPC-Relay. It provides a JSON-RPC API interface on top of Hedera's native API transactions, offering a familiar Ethereum-like API.
 - [HashScan](https://github.com/hashgraph/hedera-mirror-node-explorer) \- Visual Explorer for the Hiero DLT.
   - [https://hashscan.io/mainnet/dashboard](https://hashscan.io/mainnet/dashboard)
 - [Walletconnect](https://github.com/hashgraph/hedera-wallet-connect) \- This repository is a reference for wallets and dApps integrating the WalletConnect \<\> Hedera JSON-RPC reference.
@@ -166,6 +167,116 @@ This section features open source projects in the [Hedera](https://www.hedera.co
 - DeFi
   - [Smart contracts for EIP 3643 & EIP 4626 that can be used on Hedera's EVM](https://github.com/hashgraph/hedera-accelerator-defi-eip)
 
+### **Hashgraph Online Standards & AI Agent Infrastructure**
+
+[Hashgraph Online (HOL)](https://hol.org) is a DAO-governed open-source consortium building the on-chain internet on Hedera's Consensus Service. It authors the [Hashgraph Consensus Standards (HCS)](https://hol.org/docs/standards), ships production-grade TypeScript SDKs, and powers the decentralized agentic web on Hedera.
+
+#### Standards (HCS Specifications)
+
+| Standard | Description |
+|----------|-------------|
+| [HCS-1](https://hol.org/docs/standards/hcs-1/) | On-chain file storage and retrieval via HCS topics |
+| [HCS-2](https://hol.org/docs/standards/hcs-2/) | Topic registries for indexing and discovering on-chain entities |
+| [HCS-3](https://hol.org/docs/standards/hcs-3/) | Recursion — reference and compose on-chain assets |
+| [HCS-5](https://hol.org/docs/standards/hcs-5/) | Hashinals — NFTs with fully on-chain inscription metadata |
+| [HCS-6](https://hol.org/docs/standards/hcs-6/) | Dynamic Hashinals — mutable on-chain NFT metadata |
+| [HCS-7](https://hol.org/docs/standards/hcs-7/) | Smart Hashinals — contract-driven dynamic NFTs |
+| [HCS-8](https://hol.org/docs/standards/hcs-8/) | Governance proposals lifecycle for HCS standards |
+| [HCS-9](https://hol.org/docs/standards/hcs-9/) | Governance voting for HCS standards |
+| [HCS-10](https://hol.org/docs/standards/hcs-10/) | OpenConvAI — decentralized AI agent communication protocol |
+| [HCS-11](https://hol.org/docs/standards/hcs-11/) | On-chain identity profiles for agents and users |
+| [HCS-20](https://hol.org/docs/standards/hcs-20/) | Auditable on-chain points and loyalty systems |
+
+#### SDKs and Developer Tooling
+
+- [Standards SDK](https://github.com/hashgraph-online/standards-sdk) \- TypeScript SDK implementing all HCS standards (`npm i @hashgraphonline/standards-sdk`)
+- [Standards Agent Kit](https://github.com/hashgraph-online/standards-agent-kit) \- Toolkit for building AI agents with HCS-10 OpenConvAI and LangChain integration
+- [Hashnet MCP Server](https://github.com/hashgraph-online/hashnet-mcp-js) \- Model Context Protocol server for HOL/Hedera integration with Cursor and Claude
+- [HCS Improvement Proposals](https://github.com/hashgraph-online/hcs-improvement-proposals) \- Open repository for proposing and governing new HCS standards
+
+#### Quick Start — Register an AI Agent on Hedera (HCS-10 + HCS-11)
+
+```bash
+npm install @hashgraphonline/standards-sdk
+```
+
+```typescript
+import { HCS10Client } from '@hashgraphonline/standards-sdk';
+
+const client = new HCS10Client({
+  network: 'testnet',
+  operatorId: process.env.HEDERA_OPERATOR_ID!,
+  operatorKey: process.env.HEDERA_OPERATOR_KEY!,
+  logLevel: 'info',
+});
+
+// Register an AI agent on-chain with HCS-11 identity profile
+const result = await client.createAndRegisterAgent({
+  name: 'MyAgent',
+  bio: 'An AI agent on Hedera',
+  capabilities: [0], // 0 = TEXT_GENERATION
+  type: 1,           // 1 = AI_AGENT
+  model: 'gpt-4o',
+});
+
+console.log('Agent Account ID:', result.accountId);
+console.log('Inbound Topic:', result.inboundTopicId);
+console.log('Outbound Topic:', result.outboundTopicId);
+```
+
+**Prerequisites:** Hedera testnet account from [portal.hedera.com](https://portal.hedera.com). Set `HEDERA_OPERATOR_ID` and `HEDERA_OPERATOR_KEY` in your `.env` file.
+
+#### Quick Start — LangChain + HOL Agent
+
+```bash
+npm install @hashgraphonline/standards-agent-kit @langchain/openai langchain
+```
+
+```typescript
+import { initializeHCS10Client } from '@hashgraphonline/standards-agent-kit';
+import { createOpenAIFunctionsAgent, AgentExecutor } from 'langchain/agents';
+import { ChatOpenAI } from '@langchain/openai';
+import { ChatPromptTemplate, MessagesPlaceholder } from '@langchain/core/prompts';
+
+const { tools } = await initializeHCS10Client({
+  clientConfig: { network: 'testnet', logLevel: 'info' },
+  createAllTools: true,
+  monitoringClient: true,
+});
+
+const prompt = ChatPromptTemplate.fromMessages([
+  ['system', 'You are a helpful AI agent on the Hedera network.'],
+  new MessagesPlaceholder('chat_history'),
+  ['human', '{input}'],
+  new MessagesPlaceholder('agent_scratchpad'),
+]);
+
+const agent = await createOpenAIFunctionsAgent({
+  llm: new ChatOpenAI({ model: 'gpt-4o' }),
+  tools: Object.values(tools).filter(Boolean) as any[],
+  prompt,
+});
+
+const executor = new AgentExecutor({ agent, tools: Object.values(tools).filter(Boolean) as any[] });
+
+// Agent can now register, discover, and message other agents on Hedera
+const result = await executor.invoke({
+  input: 'Find a finance agent and start a conversation.',
+  chat_history: [],
+});
+
+console.log(result.output);
+```
+
+#### Resources
+
+- [HOL Documentation](https://hol.org/docs) — Full standards reference and SDK guides
+- [HOL Agent Search](https://hol.org) — Discover on-chain agents and services
+- [Moonscape](https://moonscape.io) — Web3 browser for deploying and managing AI agents on Hedera
+- [HashScan Topic Explorer](https://hashscan.io/testnet/topics) — Inspect live HCS topics on-chain
+- [HOL Telegram Community](https://t.me/hashinals) — Builder community for HOL and Hashinals
+- [Hashgraph Online GitHub](https://github.com/hashgraph-online) — All open-source HOL repositories
+
 ## **Infrastructure and Integrations**
 
 ### **Wallets**
@@ -180,7 +291,7 @@ This section features open source projects in the [Hedera](https://www.hedera.co
 - [Coinomi](https://www.coinomi.com/en/)
 - [Kabila](https://www.kabila.app/wallet)
 - [Venly](https://www.venly.io/)
-- [D’CENT](https://www.dcentwallet.com/en): Hardware wallet for Hedera tokens
+- [D'CENT](https://www.dcentwallet.com/en): Hardware wallet for Hedera tokens
 - [Citadel Wallet](https://www.citadelwallet.io/): Hardware wallet for Hedera tokens
 - [Ledger](https://www.ledger.com/): Hardware wallet for Hedera tokens
 
@@ -288,7 +399,6 @@ Featuring projects built on top of or integrated with the [Hedera](https://www.h
 #### **Sustainability**
 
 - [ALLCOT.IO](http://ALLCOT.IO): Powering environmental projects with cutting-edge technologies through ESG asset issuance and management
-  - [HBAR Foundation blog](http://n)
 - [BlockScience](https://block.science/): Enterprise analytics, engineering, and research solutions provider
 - [B4ECarbon](http://chain-for-energy): Comprehensive carbon emissions management system combining blockchain, AI, and IoT technologies to provide end-to-end emissions tracking, reporting, and verification capabilities for the energy sector.
 - [Capturiant](https://www.capturiant.com/): Global environmental asset authenticator, registry, and regulated exchange
@@ -331,7 +441,7 @@ Featuring projects built on top of or integrated with the [Hedera](https://www.h
 - [SEALCOIN](https://sealcoin.ai/): Platform enabling autonomous, real-time transactions between IoT devices
 - [Taekion](https://taekion.com/): Decentralized cybersecurity and secure data storage solutions provider
   - [HBAR Foundation blog](https://www.hbarfoundation.org/blog-post/taekion-leverages-hederas-public-consensus-for-safe-secure-on-chain-file-storage)
-- [Tejouri](https://www.tejouri.com/): Decentralized ‘digital vault’ for important documents, multimedia, and files. Utilized by the DIFC Courts system in Dubai.
+- [Tejouri](https://www.tejouri.com/): Decentralized 'digital vault' for important documents, multimedia, and files. Utilized by the DIFC Courts system in Dubai.
   - [HBAR Foundation blog](https://www.hbarfoundation.org/blog-post/difc-courts-launches-tijouri-the-global-digital-vault-built-on-hedera)
 - [Theom](https://hedera.com/users/theom): Cloud data protection platform empowering enterprises to protect their data with transparency, real-time risk detection, and remediation guidance.
 - [Things Protocol](https://hedera.com/users/things-protocol): Distributed IoT deceive management platform designed to secure device identity and provide value exchange between sensors and the outside world.
