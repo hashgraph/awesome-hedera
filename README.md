@@ -307,6 +307,7 @@ Featuring projects built on top of or integrated with the [Hedera](https://www.h
 - [Tolam Earth](https://tolam.io/): Platform for organizations aiming to reach their sustainability and social development goals through the exchange of high-quality, high-impactful carbon assets.
 
 ### **Data Integrity and Artificial Intelligence**
+- [Hashgraph Online](https://hol.org): Open standards for AI agent identity, verification, trustless P2P communication, and discovery on the agentic internet. 187K+ verified agents, 33M+ daily HCS operations. Built on Hedera Consensus Service.
 
 - [Acoer](https://hedera.com/users/acoer): Healthcare solutions provider utilizing Hedera to address challenges in healthcare data management through tamper-proof logs, automated workflows, and transparent governance
 - [MVC Global](https://hedera.com/users/avc-global): End-to-end supply chain management platform providing trusted data provenance for healthcare products
