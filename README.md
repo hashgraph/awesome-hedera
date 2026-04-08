@@ -329,6 +329,7 @@ Featuring projects built on top of or integrated with the [Hedera](https://www.h
 - [OneSpan](https://www.onespan.com/): Cybersecurity company that provides digital identity verification, e-signatures, and fraud prevention solutions for financial institutions and enterprises.
 - [Safe](https://hedera.com/users/safe-health-systems-inc): Digital healthcare platform for patient record management, population healthcare automation, and digital practice.
 - [SEALCOIN](https://sealcoin.ai/): Platform enabling autonomous, real-time transactions between IoT devices
+- [Swarm Spawner](https://github.com/Taurus-Ai-Corp/swarm-spawner): Ephemeral AI agent orchestration with post-quantum cryptographic identity (ML-DSA-65) and Hedera HCS audit trails
 - [Taekion](https://taekion.com/): Decentralized cybersecurity and secure data storage solutions provider
   - [HBAR Foundation blog](https://www.hbarfoundation.org/blog-post/taekion-leverages-hederas-public-consensus-for-safe-secure-on-chain-file-storage)
 - [Tejouri](https://www.tejouri.com/): Decentralized ‘digital vault’ for important documents, multimedia, and files. Utilized by the DIFC Courts system in Dubai.
