@@ -284,6 +284,7 @@ Featuring projects built on top of or integrated with the [Hedera](https://www.h
   - [HBAR Foundation blog](https://www.hbarfoundation.org/blog-post/udpn-integrates-stablecoins-and-cbdcs-issued-on-the-hedera-network)
 - [USDC](https://hedera.com/users/usdc): Regulated USD stablecoin on the Hedera network
 - [XeniPay](https://xenipay.com/): Instant, low-cost, transparent settlements for the travel industry
+- [AlgoVoi](https://algovoi.co.uk/): UK-registered multi-chain crypto payment gateway accepting HBAR and USDC on Hedera via hosted checkout, with on-chain memo binding for verification, open-source eCommerce adapters and conversational bot checkout (Telegram, Discord, X, Viber).
 
 #### **Sustainability**
 
