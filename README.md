@@ -309,6 +309,7 @@ Featuring projects built on top of or integrated with the [Hedera](https://www.h
 ### **Data Integrity and Artificial Intelligence**
 
 - [Acoer](https://hedera.com/users/acoer): Healthcare solutions provider utilizing Hedera to address challenges in healthcare data management through tamper-proof logs, automated workflows, and transparent governance
+- [Aivy](https://github.com/jmgomezl/aivy): Open-source platform for deploying autonomous AI agents on Hedera with AWS KMS-protected signing keys, on-chain spending guardrails via AivyVault, and 50+ Hedera tools via Hedera Agent Kit
 - [MVC Global](https://hedera.com/users/avc-global): End-to-end supply chain management platform providing trusted data provenance for healthcare products
 - [docStribute](https://hedera.com/users/docstribute): Immutable file sharing for regulated industries
 - [EarthID](https://hedera.com/users/earth-id): Decentralized identity (DID) management platform
