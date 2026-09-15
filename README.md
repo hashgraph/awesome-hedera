@@ -275,6 +275,7 @@ Featuring projects built on top of or integrated with the [Hedera](https://www.h
 - [Brale.xyz](https://brale.xyz/): Regulated stablecoin issuance and management stack with integrated on and offramps, treasury management, and reserves transparency.
   - [HBAR Foundation blog](https://www.hbarfoundation.org/blog-post/brale-integrates-the-hedera-network-for-regulated-stablecoin-issuance)
 - [Dropp](https://hedera.com/users/dropp): Micropayment platform democratizing online transactions and enabling unlimited pricing flexibility.
+- [DreamWidget](https://dreamwidget.com/crypto.html): Website widget service (logo showcases and a multi-platform video wall) that takes HBAR and USDC on Hedera, from a wallet or in-request by x402 from an AI agent, settled through a Hedera x402 facilitator.
 - [EMTECH](https://hedera.com/users/emtech): Software-as-a-Service platform providing central banks and institutions with a comprehensive set of tools and services to digitally transform financial services.
 - **Nomid**: Peer-to-peer payment solution leveraging Hedera to provide instant, low-cost, and secure transactions without intermediaries
 - [PHPX](https://www.ledgerinsights.com/filipino-banks-plan-to-launch-multi-issuer-stablecoin-phpx-on-hedera-dlt/): Multi-bank Philippine peso stablecoin built on Hedera
