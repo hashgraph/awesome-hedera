@@ -180,6 +180,7 @@ This section features open source projects in the [Hedera](https://www.hedera.co
 - [Coinomi](https://www.coinomi.com/en/)
 - [Kabila](https://www.kabila.app/wallet)
 - [Venly](https://www.venly.io/)
+- [H10X Wallet](https://github.com/burnbytes26/h10x-wallet): Self-custody mobile wallet with an on-chain time-locked vault, so no single key can drain it
 - [D’CENT](https://www.dcentwallet.com/en): Hardware wallet for Hedera tokens
 - [Citadel Wallet](https://www.citadelwallet.io/): Hardware wallet for Hedera tokens
 - [Ledger](https://www.ledger.com/): Hardware wallet for Hedera tokens
