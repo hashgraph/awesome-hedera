@@ -169,7 +169,7 @@ This section features open source projects in the [Hedera](https://www.hedera.co
 ## **Infrastructure and Integrations**
 
 ### **Wallets**
-- [H10X Wallet](https://h10xindex.xyz/#wallet): Self-custody wallet with a time-locked vault, guardian service and DeRec social recovery
+
 - [HashPack](https://hedera.com/users/hashpack)
 - [Blade Wallet](https://bladewallet.io/)
 - [BankSocial](https://hedera.com/users/banksocial)
@@ -180,6 +180,7 @@ This section features open source projects in the [Hedera](https://www.hedera.co
 - [Coinomi](https://www.coinomi.com/en/)
 - [Kabila](https://www.kabila.app/wallet)
 - [Venly](https://www.venly.io/)
+- [H10X Wallet](https://h10xindex.xyz/#wallet): Self-custody wallet with a time-locked vault, guardian service and DeRec social recovery
 - [D’CENT](https://www.dcentwallet.com/en): Hardware wallet for Hedera tokens
 - [Citadel Wallet](https://www.citadelwallet.io/): Hardware wallet for Hedera tokens
 - [Ledger](https://www.ledger.com/): Hardware wallet for Hedera tokens
@@ -246,8 +247,8 @@ Featuring projects built on top of or integrated with the [Hedera](https://www.h
 - [BankSocial](https://hedera.com/users/banksocial): Open banking platform providing credit unions and their members with access to web3 services and offerings
 - [Bonzo Finance](https://hedera.com/users/bonzo-finance): Decentralized lending and borrowing platform
 - [Copper](https://copper.co/en): HBAR staking, custody, and decentralized finance services
-  - [HBAR Foundation blog](https://www.hbarfoundation.org/blog-post/copper-integration-affirms-hedera-network-as-an-institutional-defi-leader)
- - [H10X](https://h10xindex.xyz): Index DTF backed by an immutable on-chain vault, with a holder DAO that votes on the basket
+- [HBAR Foundation blog](https://www.hbarfoundation.org/blog-post/copper-integration-affirms-hedera-network-as-an-institutional-defi-leader)
+- [H10X](https://h10xindex.xyz): Index DTF backed by an immutable on-chain vault, with a holder DAO that votes on the basket
 - [HeadStarter](https://hedera.com/users/headstarter): Hedera ecosystem enabler and launchpad for early stage projects
 - [HeliSwap](https://app.heliswap.io/): Decentralized exchange (AMM)
 - [HLiquity](https://hliquity.org/): Decentralized lending and borrowing platform
